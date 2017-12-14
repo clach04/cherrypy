@@ -334,6 +334,7 @@ class Dispatcher(object):
         iternames = fullpath[:]
         while iternames:
             name = iternames[0]
+            name = name.encode('utf-8')  # modjy (i.e under Java/Jython) returns Unicode strings, translate only takes in str/byte
             # map to legal Python identifiers (e.g. replace '.' with '_')
             objname = name.translate(self.translate)
 
